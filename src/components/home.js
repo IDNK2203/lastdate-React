@@ -3,7 +3,10 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home__heading">
-        <h2 className="home__headline"> Welcome to Last Date</h2>
+        <h2 className="home__headline">
+          {" "}
+          Welcome to <span> Last Date</span>{" "}
+        </h2>
       </div>
       <div className="home__auth">
         <Link to="/register" className="home__signup">

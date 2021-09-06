@@ -1,4 +1,4 @@
-import Button from "@material-ui/core/Button";
+import WizardButton from "./button";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -18,7 +18,11 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
   root: {
-    width: 300,
+    width: "100%",
+    // color: "#01bb88",
+  },
+  colorPrimary: {
+    color: "#01bb88",
   },
   formControl: {
     margin: theme.spacing(1),
@@ -55,6 +59,7 @@ function MatchInfo({
                 aria-labelledby="discrete-slider"
                 valueLabelDisplay="auto"
                 step={4}
+                color={"primary"}
                 marks
                 min={18}
                 max={90}
@@ -73,6 +78,7 @@ function MatchInfo({
                 aria-labelledby="discrete-slider"
                 valueLabelDisplay="auto"
                 step={4}
+                color={"#01bb88"}
                 marks
                 min={18}
                 max={90}
@@ -132,32 +138,16 @@ function MatchInfo({
           fullWidth
         >
           <Grid item xs={12} sm={6}>
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              onClick={prevStep}
-              className={classes.submit}
-            >
-              Prev
-            </Button>
+            <WizardButton buttonType={"Prev"} handler={prevStep}></WizardButton>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              onClick={nextStep}
-              className={classes.submit}
-            >
-              Next
-            </Button>
+            <WizardButton buttonType={"Next"} handler={nextStep}></WizardButton>
           </Grid>
         </Grid>
 
         <Grid container justifyContent="flex-end">
           <Grid item>
-            <Link href="#" variant="body2">
+            <Link href="/login" variant="body2">
               Already have an account? Sign in
             </Link>
           </Grid>

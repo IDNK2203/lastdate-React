@@ -1,4 +1,4 @@
-import Button from "@material-ui/core/Button";
+import WizardButton from "./button";
 import "date-fns";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
@@ -22,13 +22,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     minWidth: 120,
     width: "100%",
-  },
-  chips: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
-  chip: {
-    margin: 2,
   },
 }));
 
@@ -74,61 +67,9 @@ function PersonalInfo({ values, handleChange, nextStep, prevStep }) {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="date"
-              helperText="Full width!"
-              fullWidth
-              label="Birthday"
-              type="date"
-              value={values.dateOfBirth}
-              onChange={handleChange("dateOfBirth")}
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <FormControl className={classes.formControl}>
-              <InputLabel id="demo-simple-select-label">Language</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={values.language}
-                onChange={handleChange("language")}
-                fullWidth
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={"Spanish"}>Spanish</MenuItem>
-                <MenuItem value={"Japanese"}>Japanese</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={12}>
-            <FormControl className={classes.formControl}>
-              <InputLabel id="demo-simple-select-label">Gender</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={values.gender}
-                onChange={handleChange("gender")}
-                fullWidth
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={"Male"}>Male</MenuItem>
-                <MenuItem value={"Female"}>Female</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
               id="outlined-multiline-static"
               label="Multiline"
               multiline
-              helperText="Full width!"
               fullWidth
               rows={4}
               variant="outlined"
@@ -137,24 +78,76 @@ function PersonalInfo({ values, handleChange, nextStep, prevStep }) {
             />
           </Grid>
           <Grid item xs={12}>
-            <FormControl className={classes.formControl}>
-              <InputLabel id="demo-mutiple-name-label">Hobbies</InputLabel>
-              <Select
-                labelId="demo-mutiple-name-label"
-                id="demo-mutiple-name"
-                multiple
-                value={values.hobbies}
-                onChange={handleChange("hobbies")}
-                input={<Input />}
-                MenuProps={MenuProps}
-              >
-                {hobbies.map((name) => (
-                  <MenuItem key={name} value={name}>
-                    {name}
+            <Grid item xs={12}>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={values.language}
+                  onChange={handleChange("language")}
+                  fullWidth
+                >
+                  <MenuItem value="">
+                    <em>None</em>
                   </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+                  <MenuItem value={"Spanish"}>Spanish</MenuItem>
+                  <MenuItem value={"Japanese"}>Japanese</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={values.gender}
+                  onChange={handleChange("gender")}
+                  fullWidth
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={"Male"}>Male</MenuItem>
+                  <MenuItem value={"Female"}>Female</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-mutiple-name-label">Hobbies</InputLabel>
+                <Select
+                  labelId="demo-mutiple-name-label"
+                  id="demo-mutiple-name"
+                  multiple
+                  value={values.hobbies}
+                  onChange={handleChange("hobbies")}
+                  input={<Input />}
+                  MenuProps={MenuProps}
+                >
+                  {hobbies.map((name) => (
+                    <MenuItem key={name} value={name}>
+                      {name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="date"
+                fullWidth
+                label="Birthday"
+                type="date"
+                value={values.dateOfBirth}
+                onChange={handleChange("dateOfBirth")}
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            </Grid>
           </Grid>
         </Grid>
         <Grid
@@ -166,32 +159,16 @@ function PersonalInfo({ values, handleChange, nextStep, prevStep }) {
           fullWidth
         >
           <Grid item xs={12} sm={6}>
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              onClick={prevStep}
-              className={classes.submit}
-            >
-              Prev
-            </Button>
+            <WizardButton buttonType={"Prev"} handler={prevStep}></WizardButton>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              onClick={nextStep}
-              className={classes.submit}
-            >
-              Next
-            </Button>
+            <WizardButton buttonType={"Next"} handler={nextStep}></WizardButton>
           </Grid>
         </Grid>
 
         <Grid container justifyContent="flex-end">
           <Grid item>
-            <Link href="#" variant="body2">
+            <Link href="/login" variant="body2">
               Already have an account? Sign in
             </Link>
           </Grid>

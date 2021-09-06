@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#01bb88",
+    color: "white",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -41,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: theme.palette.success.main,
+    backgroundColor: "#01bb88",
+    color: "white",
   },
   link: {
     display: "flex",
@@ -104,7 +106,7 @@ export default function Login() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/register" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

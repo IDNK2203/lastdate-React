@@ -18,7 +18,9 @@ import { Grid } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#01bb88",
+    color: "white",
+    // backgroundColor:"#01bb88" theme.palette.secondary.main,
   },
 }));
 

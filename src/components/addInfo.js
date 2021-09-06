@@ -1,5 +1,4 @@
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,6 +8,7 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from "@material-ui/core/FormLabel";
+import WizardButton from "./button";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     width: 300,
+  },
+  gridItem: {
+    margin: theme.spacing(1, 0),
   },
   formControl: {
     margin: theme.spacing(1),
@@ -43,45 +46,45 @@ function AddInfo({ values, handleChange, nextStep, prevStep }) {
         <Grid container spacing={2}>
           <div className={classes.margin}>
             <Grid container spacing={1} alignItems="flex-end">
-              <Grid item>
+              <Grid item className={classes.gridItem}>
                 <img
                   className={classes.icon}
                   alt="spotify icon"
                   src="https://img.icons8.com/doodle/48/000000/spotify.png"
                 />
               </Grid>
-              <Grid item>
+              <Grid item className={classes.gridItem}>
                 <TextField id="input-with-icon-grid" label="With a grid" />
               </Grid>
             </Grid>
           </div>
           <div className={classes.margin}>
             <Grid container spacing={1} alignItems="flex-end">
-              <Grid item>
+              <Grid item className={classes.gridItem}>
                 <img
                   className={classes.icon}
                   alt="instagram icon"
                   src="https://img.icons8.com/color/48/000000/instagram-new--v2.png"
                 />
               </Grid>
-              <Grid item>
+              <Grid item className={classes.gridItem}>
                 <TextField id="input-with-icon-grid" label="With a grid" />
               </Grid>
             </Grid>
           </div>
           <div className={classes.margin}>
             <Grid container spacing={1} alignItems="flex-end">
-              <Grid item>
+              <Grid item className={classes.gridItem}>
                 <AccountCircle />
               </Grid>
-              <Grid item>
+              <Grid item className={classes.gridItem}>
                 <TextField id="input-with-icon-grid" label="With a grid" />
               </Grid>
             </Grid>
           </div>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item className={classes.gridItem} xs={12}>
           <FormControl component="fieldset">
             <FormLabel component="legend">You Like Fruit?</FormLabel>
             <RadioGroup
@@ -101,7 +104,7 @@ function AddInfo({ values, handleChange, nextStep, prevStep }) {
           </FormControl>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item className={classes.gridItem} xs={12}>
           <FormControl component="fieldset">
             <FormLabel component="legend">You Like Running?</FormLabel>
             <RadioGroup
@@ -128,33 +131,17 @@ function AddInfo({ values, handleChange, nextStep, prevStep }) {
           className="auth__Providers"
           fullWidth
         >
-          <Grid item xs={12} sm={6}>
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              onClick={prevStep}
-              className={classes.submit}
-            >
-              Prev
-            </Button>
+          <Grid item className={classes.gridItem} xs={12} sm={6}>
+            <WizardButton buttonType={"Prev"} handler={prevStep}></WizardButton>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              onClick={nextStep}
-              className={classes.submit}
-            >
-              Next
-            </Button>
+          <Grid item className={classes.gridItem} xs={12} sm={6}>
+            <WizardButton buttonType={"Next"} handler={nextStep}></WizardButton>
           </Grid>
         </Grid>
 
         <Grid container justifyContent="flex-end">
-          <Grid item>
-            <Link href="#" variant="body2">
+          <Grid item className={classes.gridItem}>
+            <Link href="/login" variant="body2">
               Already have an account? Sign in
             </Link>
           </Grid>
