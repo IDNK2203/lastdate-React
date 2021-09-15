@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/home";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Login from "./components/login";
-import Register from "./components/register";
+import Welcome from "./components/pages/welcome";
+import Login from "./components/pages/login";
+import Register from "./components/pages/register";
+import RegSuccess from "./components/pages/regSuccess";
+import Home from "./components/pages/home";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <CssBaseline />
         <Switch>
           <Route exact path="/login">
             <Login></Login>
@@ -16,8 +16,14 @@ function App() {
           <Route exact path="/register">
             <Register></Register>
           </Route>
-          <Route path="/">
+          <Route exact path="/home">
             <Home></Home>
+          </Route>
+          <Route exact path="/registration-success">
+            <RegSuccess></RegSuccess>
+          </Route>
+          <Route path="/">
+            <Welcome></Welcome>
           </Route>
         </Switch>
       </div>

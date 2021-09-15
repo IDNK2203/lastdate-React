@@ -3,9 +3,12 @@ import { makeStyles } from "@material-ui/core/styles"; //
 
 const useStyles = makeStyles((theme) => ({
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(1, 0, 1),
     backgroundColor: "#01bb88",
     color: "white",
+    "&:hover": {
+      backgroundColor: "#01bb88",
+    },
   },
 }));
 
@@ -48,7 +51,7 @@ function WizardButton({ buttonType, handler }) {
           onClick={handler}
           className={classes.submit}
         >
-          Next
+          Submit
         </Button>
       );
     // never forget the default case, otherwise VS code would be mad!

@@ -1,9 +1,8 @@
 import { Component } from "react";
-import AddInfo from "./addInfo";
-import LoginInfo from "./loginInfo";
-import MatchInfo from "./matchInfo";
-import PersonalInfo from "./personalInfo";
-import RegSuccess from "./regSuccess";
+import AddInfo from "../multiPartForm/addInfo";
+import LoginInfo from "../multiPartForm/loginInfo";
+import MatchInfo from "../multiPartForm/matchInfo";
+import PersonalInfo from "../multiPartForm/personalInfo";
 
 import Avatar from "@material-ui/core/Avatar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -20,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: "#01bb88",
     color: "white",
-    // backgroundColor:"#01bb88" theme.palette.secondary.main,
   },
 }));
 
@@ -122,15 +120,6 @@ export default class Register extends Component {
       case 4:
         return (
           <AddInfo
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            handleChange={this.handleChange}
-            values={values}
-          />
-        );
-      case 5:
-        return (
-          <RegSuccess
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleChange={this.handleChange}

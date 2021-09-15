@@ -2,8 +2,8 @@ import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import OAuthLinks from "./oAuthProviders";
-import WizardButton from "./button";
+import OAuthLinks from "../oAuthProviders";
+import WizardButton from "../button";
 
 const useStyles = makeStyles((theme) => ({
   form: {

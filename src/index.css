@@ -1,4 +1,28 @@
-.home {
+/* Resets */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* welcome & reg page style */
+.welcome,
+.regSuccess {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -10,7 +34,7 @@
   color: white;
 
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url(images/home-bg.jpg);
+    url(images/welcome-bg.jpg);
   background-position-x: center;
   background-position-y: center;
   background-repeat: no-repeat;
@@ -21,14 +45,14 @@
   -o-background-size: cover;
 }
 
-.home__heading {
+.welcome__heading {
   margin: 2rem 0;
 }
-.home__headline {
+.welcome__headline {
   text-align: center;
   font-size: 2rem;
 }
-.home__headline span {
+.welcome__headline span {
   background: url(images/heart.png);
   background-position-x: center;
   background-position-y: center;
@@ -37,46 +61,276 @@
   padding: 2rem;
   display: block;
 }
-.home__auth {
+.welcome__auth {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 2rem;
 }
-.home__auth > * {
+.LinkBtn--primary {
   padding: 0.5rem 2rem;
   text-decoration: none;
   font-size: 1.25rem;
   background-color: rgba(0, 0, 0, 0.45);
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.25);
   color: #01bb88;
   margin: 1rem 0;
   border-radius: 2rem;
   border: 5px solid #01bb88;
 }
-.home__auth > *:hover {
+.LinkBtn--primary:hover {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-.home__footNote {
+.welcome__footNote {
   text-align: center;
   margin: 2rem 0 0;
   background: black;
   width: 100%;
   color: #01bb88;
 }
-.home__footNote p {
+.welcome__footNote p {
   max-width: 45rem;
   text-align: center;
   margin: 0 auto;
   padding: 1rem;
 }
 
+.regSuccess__content .imgHolder {
+  margin: 1rem 0;
+  text-align: center;
+}
 @media only screen and (min-width: 680px) {
-  .home__headline {
+  .welcome__headline {
     font-size: 2.5rem;
   }
-  .home__headline span {
+  .welcome__headline span {
     display: inline;
+  }
+}
+
+/* MatchCard Component */
+.matchCard {
+  padding: 0.5rem 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: #01bb88;
+  box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.25);
+  max-width: 350px;
+  width: 100%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.matchCard:nth-of-type(4) {
+  margin-top: 0.5rem;
+}
+.matchCard:nth-of-type(3) {
+  margin-top: 1rem;
+}
+.matchCard:nth-of-type(2) {
+  margin-top: 1.5rem;
+}
+.matchCard:nth-of-type(1) {
+  margin-top: 2rem;
+}
+
+.matchCard__infoCard {
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+  color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  border-radius: 1rem;
+  display: flex;
+  align-items: flex-end;
+  height: 250px;
+}
+.matchCard__percent {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: #ffbac6d6;
+  border-radius: 5px;
+  padding: 0.25rem;
+}
+.matchCard__userInfo-CA {
+  display: flex;
+  font-weight: bold;
+  margin: 0.25rem 0 0.5rem;
+  padding: 0 1rem;
+}
+.matchCard__userInfo h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.4rem;
+  padding: 0 1rem;
+  text-align: left;
+}
+
+.matchCard__userInfo-CA > * {
+  padding-right: 0.75rem;
+}
+.matchCard__actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.matchCard__btn {
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.25);
+}
+.matchCard__btn--cancel {
+  background-color: pink;
+  color: red;
+}
+.matchCard__btn--profile {
+  background-color: #09ffbc;
+  color: rgb(83, 0, 218);
+  font-weight: 900;
+  padding: 1rem;
+}
+.matchCard__btn--like {
+  background-color: rgb(192, 240, 255);
+  color: red;
+  font-weight: 900;
+}
+
+/*Nav Component */
+.nav {
+  width: 100%;
+}
+.nav__links {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  padding: 1rem 0 0.25rem;
+  color: black;
+}
+.nav__link {
+  padding: 0.15rem 1.25rem;
+  background-color: #01bb88;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px 0 rgba(255, 255, 255, 0.25);
+}
+.nav__link:nth-child(2) {
+  border-radius: 50%;
+  padding: 0.75rem 0.75rem;
+}
+.nav__link a {
+  display: flex;
+}
+
+/*Header Component */
+
+.header__container {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+.header__logo-holder span {
+  background: url(images/heart.png);
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0.75rem 0;
+  display: block;
+  color: white;
+}
+.header__profile-img-holder {
+  padding: 0.75rem;
+  background: #01bb88;
+  border-bottom-left-radius: 25%;
+}
+.header__profile-img-holder img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.home__container {
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto 1fr auto;
+}
+
+.home {
+  height: 100vh;
+  background-color: #1e1e1e;
+}
+
+.home__main {
+  padding: 0 1rem;
+  justify-self: stretch;
+}
+
+.home__title {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.home__match-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* HOME PAGE STYLEs */
+@media only screen and (min-width: 680px) {
+  .home__container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "header header"
+      "nav body";
+  }
+  .home__main {
+    padding: 1rem;
+    grid-area: body;
+  }
+  .home__title {
+    font-size: 2rem;
+  }
+
+  .nav {
+    grid-area: nav;
+  }
+  .header {
+    grid-area: header;
+  }
+
+  .nav__links {
+    flex-direction: column;
+  }
+
+  .nav__link:nth-child(2) {
+    border-radius: 5px;
+    padding: 1rem;
+  }
+
+  .nav__link {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .matchCard__infoCard {
+    height: 350px;
   }
 }

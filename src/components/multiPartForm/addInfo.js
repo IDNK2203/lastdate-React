@@ -8,7 +8,8 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from "@material-ui/core/FormLabel";
-import WizardButton from "./button";
+import WizardButton from "../button";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -40,6 +41,14 @@ const useStyles = makeStyles((theme) => ({
 
 function AddInfo({ values, handleChange, nextStep, prevStep }) {
   const classes = useStyles();
+  let history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    history.push("/registration-success");
+  };
+
   return (
     <div>
       <form className={classes.form} noValidate>
@@ -131,11 +140,14 @@ function AddInfo({ values, handleChange, nextStep, prevStep }) {
           className="auth__Providers"
           fullWidth
         >
-          <Grid item className={classes.gridItem} xs={12} sm={6}>
+          <Grid item xs={12} sm={6}>
             <WizardButton buttonType={"Prev"} handler={prevStep}></WizardButton>
           </Grid>
-          <Grid item className={classes.gridItem} xs={12} sm={6}>
-            <WizardButton buttonType={"Next"} handler={nextStep}></WizardButton>
+          <Grid item xs={12} sm={6}>
+            <WizardButton
+              buttonType={"Submit"}
+              handler={handleSubmit}
+            ></WizardButton>
           </Grid>
         </Grid>
 

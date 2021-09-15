@@ -1,4 +1,4 @@
-import WizardButton from "./button";
+import WizardButton from "../button";
 import "date-fns";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
